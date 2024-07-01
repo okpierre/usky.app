@@ -297,3 +297,9 @@ export interface Payload {
 	repo: string
 	rev: string
 }
+
+export interface Message {
+	actor?: Actor
+	content: string
+	timestamp: Date
+}

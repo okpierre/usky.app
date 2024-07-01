@@ -37,6 +37,9 @@ import List, { getListData } from './routes/profile/[profile]/lists/[list]'
 import { Top, People, Latest, Media as MediaSearch } from './routes/search'
 import Trends, { getTranding } from './routes/trends'
 import Spinner from './components/Spinner.tsx'
+// DM
+const Messages = lazy(() => import('./routes/messages'))
+const Message = lazy(() => import('./routes/messages/[message]'))
 
 render(
 	() => (
@@ -62,6 +65,8 @@ render(
 						/>
 					</Route>
 					<Route path='/live' component={Firehose} />
+					<Route path="/messages" component={Messages} />
+					<Route path="/messages/[message]" component={Message} />
 					<Route path='/search' component={SearchPage}>
 						<Route
 							path='/'
@@ -111,7 +116,6 @@ render(
 							}
 						/>
 					</Route>
-
 					<Route
 						path='/hashtag/:hashtag'
 						component={HashtagPage}
